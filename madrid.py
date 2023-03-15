@@ -112,10 +112,10 @@ tab_plots = tabs[1]
 with tab_plots:
     map = px.scatter_mapbox(df, lat='latitude', lon='longitude', color='neighbourhood_group',
                         size_max=15, zoom=10, height=800, title="Hospedajes por barrio",
-                        labels={"neighbourhood_group":""})
+                        labels={"neighbourhood_group":"Barrio","longitude":"Lon","latitude":"Lat"})
     map.update_layout(mapbox_style='open-street-map')
     map.update_layout(margin={"r":80,"t":80,"l":80,"b":80})
-    map.update_layout(width=1000, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    map.update_layout(width=900, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     map.update_layout(template="plotly_dark")
     st.plotly_chart(map)
 
@@ -123,7 +123,7 @@ with tab_plots:
     st.markdown("**+ Se tomaron solo los grupos de barrio que tenían más de 1000 alojamientos (“Arganzuela”- “Centro”- “Chamberi”- “Salamanca”**")
     st.markdown("**+ Solo los hosts a partir de 400 reviews**")
 
-
+# Dashboard de power bi interactivo
 with tab_plots:
     st.subheader('Dashboard General')
     st.write(f'<iframe src="https://app.powerbi.com/reportEmbed?reportId=f9c5edba-9729-49b3-a55d-3db8886f8465&autoAuth=true&ctid=8aebddb6-3418-43a1-a255-b964186ecc64" width="900" height="700" style="overflow:auto" frameborder="0" allowFullScreen="true"></iframe>', unsafe_allow_html=True)
